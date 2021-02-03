@@ -23,4 +23,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/edit/:id", async (req, res) => {
+  const todo = await Todo.findOne({ _id: req.params.id });
+  res.render("edit.ejs", { todo: todo });
+});
+
+router.post("/edit", async (req, res) => {
+  await Todo.updateOne(
+    { _id: req.body.id },
+    {
+      name: req.body.name,
+    }
+  );
+  res.redirect("/");
+});
+
 module.exports = router;
