@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const router = require("./routes/todoRoute");
 const app = express();
+require("dotenv").config();
 
 app.use(express.static("./public"));
 
@@ -18,11 +19,11 @@ const appStartedCallback = () => {
 
 const databaseConnectedCallback = (err) => {
   if (err) return;
-  app.listen(5504, appStartedCallback);
+  app.listen(process.env.PORT, appStartedCallback);
 };
 
 mongoose.connect(
-  "mongodb+srv://fredrika:hejhejhej@cluster0.ftmyu.mongodb.net/todo_list?retryWrites=true&w=majority",
+  process.env.DATABASE_URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
