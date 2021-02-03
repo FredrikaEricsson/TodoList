@@ -9,6 +9,7 @@
   <body>
     <p>Hej</p>
 
-    <%- include("addData.ejs") %>
+    <%- include("addData.ejs") %> <% if(typeof error !== undefined && error
+    !=="empty") { %> <%- include("error.ejs") %> <% } %>
   </body>
 </html>
