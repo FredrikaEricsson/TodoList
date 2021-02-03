@@ -38,4 +38,9 @@ router.post("/edit", async (req, res) => {
   res.redirect("/");
 });
 
+router.get("/delete/:id", async (req, res) => {
+  await Todo.deleteOne({ _id: req.params.id });
+  res.redirect("/");
+});
+
 module.exports = router;
