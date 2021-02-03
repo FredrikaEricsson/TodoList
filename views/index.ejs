@@ -9,7 +9,16 @@
   <body>
     <p>Hej</p>
 
-    <%- include("addData.ejs") %> <% if(typeof error !== undefined && error
+    <%- include("addData.ejs") %> 
+    <% if(typeof error !== undefined && error
     !=="empty") { %> <%- include("error.ejs") %> <% } %>
+
+    <% for(let i=0; i<data.length; i++) { %>
+      <div>  <%= data[i].name %>
+
+      </div>
+       
+         
+      <% } %>
   </body>
 </html>

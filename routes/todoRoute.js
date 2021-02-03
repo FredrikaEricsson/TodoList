@@ -13,7 +13,6 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body.name);
   try {
     await new Todo({
       name: req.body.name,
