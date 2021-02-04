@@ -2,10 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const router = require("./routes/todoRoute");
+
 const app = express();
 require("dotenv").config();
 
-app.use(express.static("./public"));
+app.use(express.static(__dirname + "/public/style"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon main.js",
+    "watch": "npm run watch-code & npm run watch-css",
+    "watch-code": "nodemon main.js",
+    "watch-css": "node-sass -w scss -o public/style",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +24,9 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
-    "mongoose": "^5.11.14"
+    "mongoose": "^5.11.14",
+    "node-sass-middleware": "^0.11.0",
+    "path": "^0.12.7",
+    "sass": "^1.32.6"
   }
 }
