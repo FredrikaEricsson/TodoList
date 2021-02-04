@@ -1,12 +1,24 @@
 const express = require("express");
 const Todo = require("../model/todo");
-
 const router = express.Router();
 
 router.get("/", async (req, res) => {
+  const sorted = +req.query.sorted || 1;
+  const page = +req.query.page || 1;
   try {
-    const data = await Todo.find();
-    res.render("index.ejs", { data: data, error: "empty" });
+    const totalData = await Todo.find().countDocuments();
+    const dataToShowPerReq = 5;
+    const totalDataPart = Math.ceil(totalData / dataToShowPerReq);
+    const dataToShow = dataToShowPerReq * page;
+    const data = await Todo.find().limit(dataToShow).sort({ date: sorted });
+    res.render("index.ejs", {
+      data,
+      totalData,
+      totalDataPart,
+      dataToShow,
+      dataToShowPerReq,
+      errors: "empty",
+    });
   } catch (err) {
     res.render("error.ejs", { error: err });
   }

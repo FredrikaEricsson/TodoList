@@ -9,19 +9,37 @@
   <body>
     <p>Hej</p>
 
-    <%- include("addData.ejs") %> 
-    <% if(typeof error !== undefined && error
-    !=="empty") { %> <%- include("error.ejs") %> <% } %>
+ 
 
+    <%- include("addData.ejs") %> 
+
+
+    <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"> Datum(Senast) </a>
+    <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=1"> Datum(Tidigast)  </a>
     <% for(let i=0; i<data.length; i++) { %>
       <div>  <%= data[i].name %>
+        <%= data[i].date.toDateString() %>
 
-        <a href="/edit/<%= data[i]._id %>" > edit  </a> 
-        <a href="/delete/<%= data[i]._id %>"  >    delete</a> 
+        <a href="/edit/<%= data[i]._id %>" > Ändra </a> 
+        <a href="/delete/<%= data[i]._id %>"  > Ta bort </a> 
 
       </div>
        
          
+      <% } %>
+
+
+      <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
+
+        <a href="/?page=<%=(dataToShow/dataToShowPerReq) +1%>"> 
+            Visa flera
+          </a>
+      <% } else {   %>
+
+        <a href="/?page=1"> 
+            Visa färre
+          </a>
+
       <% } %>
   </body>
 </html>
