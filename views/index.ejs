@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <p>Hej</p>
-
+    <div id="headline">
+    <span>Att göra</span>
+  </div>
  
-
+<div id="addData">
     <%- include("addData.ejs") %> 
-
+  </div>
 
     <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"> Datum(Senast) </a>
     <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=1"> Datum(Tidigast)  </a>
     <% for(let i=0; i<data.length; i++) { %>
-      <div>  <%= data[i].name %>
-        <%= data[i].date.toDateString() %>
 
-        <a href="/edit/<%= data[i]._id %>" > Ändra </a> 
-        <a href="/delete/<%= data[i]._id %>"  > Ta bort </a> 
+    <div id="todoList">
+      <div id="todoName">  <%= data[i].name %> </div>
+      <div id="todoDate"> <%= data[i].date.toDateString() %></div>
+
+       <div id="changeTodo"> <a href="/edit/<%= data[i]._id %>" > Ändra </a> </div>
+       <div id="deleteTodo"> <a href="/delete/<%= data[i]._id %>"  > Ta bort </a> </div>
 
       </div>
        

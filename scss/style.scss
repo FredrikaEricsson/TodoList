@@ -1,3 +1,42 @@
-p {
-  color: red;
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  body {
+    display: flex;
+    flex-direction: column;
+
+    width: 20%;
+
+    #addData {
+      display: flex;
+      justify-content: center;
+    }
+
+    #headline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    #todoList {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      #todoName {
+      }
+      #todoDate {
+      }
+
+      #changeTodo {
+      }
+
+      #deleteTodo {
+      }
+    }
+  }
 }

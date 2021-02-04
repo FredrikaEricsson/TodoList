@@ -1,2 +1,22 @@
-p {
-  color: red; }
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  html body {
+    display: flex;
+    flex-direction: column;
+    width: 20%; }
+    html body #addData {
+      display: flex;
+      justify-content: center; }
+    html body #headline {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      html body #headline span {
+        justify-content: center;
+        align-items: center; }
+    html body #todoList {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
