@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Att göra</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> 
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
@@ -14,17 +15,19 @@
 <div id="addData">
     <%- include("addData.ejs") %> 
   </div>
-
+<div id="sorting">
     <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"> Datum(Senast) </a>
     <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=1"> Datum(Tidigast)  </a>
+  </div>
     <% for(let i=0; i<data.length; i++) { %>
 
     <div id="todoList">
       <div id="todoName">  <%= data[i].name %> </div>
       <div id="todoDate"> <%= data[i].date.toDateString() %></div>
 
-       <div id="changeTodo"> <a href="/edit/<%= data[i]._id %>" > Ändra </a> </div>
-       <div id="deleteTodo"> <a href="/delete/<%= data[i]._id %>"  > Ta bort </a> </div>
+       <div id="changeTodo"> <a href="/edit/<%= data[i]._id %>" > <i class="fas fa-edit"></i>
+       </a> </div>
+       <div id="deleteTodo"> <a href="/delete/<%= data[i]._id %>"  > <i class="fas fa-trash-alt"></i></a> </div>
 
       </div>
        
@@ -44,5 +47,7 @@
           </a>
 
       <% } %>
+
+      
   </body>
 </html>

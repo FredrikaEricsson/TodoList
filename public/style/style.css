@@ -5,18 +5,41 @@ html {
   html body {
     display: flex;
     flex-direction: column;
-    width: 20%; }
-    html body #addData {
-      display: flex;
-      justify-content: center; }
+    width: 33%; }
     html body #headline {
       display: flex;
       justify-content: center;
       align-items: center; }
       html body #headline span {
         justify-content: center;
-        align-items: center; }
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 40px;
+        padding: 2%; }
+    html body #addData {
+      display: flex;
+      justify-content: center; }
+    html body #sorting {
+      display: flex;
+      justify-content: center;
+      font-family: sans-serif; }
+      html body #sorting a {
+        display: flex;
+        padding: 1% 2%; }
     html body #todoList {
       display: flex;
       flex-direction: row;
-      justify-content: space-between; }
+      background-color: lightblue;
+      font-family: sans-serif; }
+      html body #todoList #todoName {
+        width: 65%;
+        padding: 1% 2%; }
+      html body #todoList #todoDate {
+        width: 38%;
+        padding: 1% 2%; }
+      html body #todoList #changeTodo {
+        width: 3%;
+        padding: 1% 2%; }
+      html body #todoList #deleteTodo {
+        width: 3%;
+        padding: 1% 2%; }

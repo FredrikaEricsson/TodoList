@@ -28,6 +28,7 @@ router.post("/", async (req, res) => {
   try {
     await new Todo({
       name: req.body.name,
+      date: req.body.date,
     }).save();
     res.redirect("/");
   } catch (err) {

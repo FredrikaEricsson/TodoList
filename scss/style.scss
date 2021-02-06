@@ -6,13 +6,7 @@ html {
     display: flex;
     flex-direction: column;
 
-    width: 20%;
-
-    #addData {
-      display: flex;
-      justify-content: center;
-    }
-
+    width: 33%;
     #headline {
       display: flex;
       justify-content: center;
@@ -20,22 +14,50 @@ html {
       span {
         justify-content: center;
         align-items: center;
+        font-family: sans-serif;
+        font-size: 40px;
+        padding: 2%;
+      }
+    }
+    #addData {
+      display: flex;
+      justify-content: center;
+    }
+
+    #sorting {
+      display: flex;
+      justify-content: center;
+      font-family: sans-serif;
+
+      a {
+        display: flex;
+        padding: 1% 2%;
       }
     }
     #todoList {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      background-color: lightblue;
+      font-family: sans-serif;
 
       #todoName {
+        width: 65%;
+        padding: 1% 2%;
       }
       #todoDate {
+        width: 38%;
+        padding: 1% 2%;
       }
 
       #changeTodo {
+        width: 3%;
+        padding: 1% 2%;
       }
 
       #deleteTodo {
+        width: 3%;
+
+        padding: 1% 2%;
       }
     }
   }
