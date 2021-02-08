@@ -16,15 +16,25 @@
     <div id="headline">
       <span>Att göra</span>
     </div>
+    <div id="addData">
+    <%- include("addData.ejs") %> 
+  </div>
     <div id="container">
    
  
-<div id="addData">
-    <%- include("addData.ejs") %> 
-  </div>
-<div id="sorting">
-    <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"> Datum(Senast) </a>
-    <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=1"> Datum(Tidigast)  </a>
+
+
+  <div id="todoHeadlines">
+    <span id="name">Namn</span>
+    <span id="date">Datum (Skapad)
+      <div id="sorting">
+      <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"><i class="fas fa-arrow-up"></i>
+        
+      </a>
+      <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=1"><i class="fas fa-arrow-down"></i>
+      </a>
+    </div>
+    </span>
   </div>
     <% for(let i=0; i<data.length; i++) { %>
 
