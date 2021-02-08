@@ -6,20 +6,20 @@ router.get("/", async (req, res) => {
   const sorted = +req.query.sorted || 1;
   const page = +req.query.page || 1;
   try {
-    const totalData = await Todo.find().countDocuments();
-    const dataToShowPerReq = 5;
-    const totalDataPart = Math.ceil(totalData / dataToShowPerReq);
-    const dataToShow = dataToShowPerReq * page;
-    const data = await Todo.find()
+    const allTodos = await Todo.find().countDocuments();
+    const todosPerPage = 5;
+    const numberOfPages = Math.ceil(allTodos / todosPerPage);
+    const displayedTodos = todosPerPage * page;
+    const todos = await Todo.find()
 
-      .limit(dataToShow)
+      .limit(displayedTodos)
       .sort({ date: sorted });
     res.render("index.ejs", {
-      data,
-      totalData,
-      totalDataPart,
-      dataToShow,
-      dataToShowPerReq,
+      todos,
+      allTodos,
+      numberOfPages,
+      displayedTodos,
+      todosPerPage,
       errors: "empty",
     });
   } catch (err) {
@@ -40,17 +40,12 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/edit/:id", async (req, res) => {
-  const todo = await Todo.findOne({ _id: req.params.id });
-  res.render("edit.ejs", { todo: todo });
+  const todos = await Todo.findOne({ _id: req.params.id });
+  res.render("edit.ejs", { todos: todos });
 });
 
 router.post("/edit", async (req, res) => {
-  await Todo.updateOne(
-    { _id: req.body.id },
-    {
-      name: req.body.name,
-    }
-  );
+  await Todo.updateOne({ _id: req.body.id }, { name: req.body.name });
   res.redirect("/");
 });
 

@@ -1,12 +1,10 @@
 html {
   display: flex;
 
-  body {
+  #indexBody {
     display: flex;
     flex-direction: column;
-
     width: 100%;
-
     align-items: center;
     margin-top: 3%;
 
@@ -14,7 +12,6 @@ html {
       display: flex;
       justify-content: center;
       align-items: center;
-
       width: 30%;
       margin-bottom: 1%;
 
@@ -24,9 +21,8 @@ html {
         font-family: "Exo", sans-serif;
         font-weight: 800;
         font-size: 40px;
-
         color: darkgray;
-        text-decoration: underline solid #fec5bb 6px;
+        text-decoration: underline solid #f694c1 6px;
         padding: 2%;
       }
     }
@@ -42,31 +38,30 @@ html {
         justify-content: center;
         width: 70%;
         height: 2em;
+
         input {
           width: 40%;
           margin-right: 1%;
           height: 70%;
           font-family: "Roboto", sans-serif;
           color: rgb(94, 94, 94);
-
           border: 1px solid rgb(94, 94, 94);
         }
+
         button {
           height: 83%;
           font-family: "Exo", sans-serif;
           color: rgb(94, 94, 94);
-          background-color: #fec5bb;
+          background-color: #ede7b1;
           border: 1px solid rgb(94, 94, 94);
         }
       }
     }
 
-    #container {
+    #toDoList {
       display: flex;
       flex-direction: column;
-      background-color: #fae1dd;
       width: 35%;
-
       align-items: center;
       padding: 2%;
 
@@ -76,13 +71,14 @@ html {
         align-items: center;
         width: 97%;
         font-family: "Roboto", sans-serif;
-        background-color: #d8a69d;
+        background-color: #f694c1;
         color: rgb(94, 94, 94);
 
         #name {
           font-size: 17px;
           padding: 1% 2%;
         }
+
         #date {
           display: flex;
           align-items: center;
@@ -90,14 +86,11 @@ html {
           padding: 1% 0%;
           font-size: 17px;
 
-          #sorting {
-            a {
-              text-decoration: none;
-              font-size: 15px;
-              margin-left: 20%;
-
-              color: rgb(94, 94, 94);
-            }
+          a {
+            text-decoration: none;
+            font-size: 15px;
+            margin-left: 20%;
+            color: rgb(94, 94, 94);
           }
         }
       }
@@ -105,7 +98,7 @@ html {
       #todoList {
         display: flex;
         flex-direction: row;
-        background-color: #fec5bb;
+        background-color: #d3f8e2;
         color: rgb(94, 94, 94);
         font-family: "Roboto", sans-serif;
         width: 97%;
@@ -114,6 +107,7 @@ html {
           width: 65%;
           padding: 1% 2%;
         }
+
         #todoDate {
           width: 38%;
           padding: 1% 0%;
@@ -122,6 +116,7 @@ html {
         #changeTodo {
           width: 3%;
           padding: 1% 2%;
+
           a {
             color: rgb(94, 94, 94);
           }
@@ -129,7 +124,6 @@ html {
 
         #deleteTodo {
           width: 3%;
-
           padding: 1% 2%;
           a {
             color: rgb(94, 94, 94);
@@ -143,6 +137,35 @@ html {
         a {
           color: rgb(94, 94, 94);
         }
+      }
+    }
+  }
+
+  #editBody {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      align-items: center;
+      padding: 3%;
+      background-color: #d3f8e2;
+
+      input {
+        width: 60%;
+        margin-right: 1%;
+        font-family: "Roboto", sans-serif;
+        color: rgb(94, 94, 94);
+        border: 1px solid rgb(94, 94, 94);
+      }
+
+      button {
+        font-family: "Exo", sans-serif;
+        color: rgb(94, 94, 94);
+        background-color: #ede7b1;
+        border: 1px solid rgb(94, 94, 94);
       }
     }
   }

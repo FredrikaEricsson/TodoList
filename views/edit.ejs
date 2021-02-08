@@ -1,7 +1,31 @@
-<form action="/edit" method="post">
-  <input type="text" name="name" id="" value="<%= todo.name %>" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Att göra</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
-  <input type="text" name="id" value="<%=todo._id %>" hidden />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700;800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
-  <button type="submit">Uppdatera</button>
-</form>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body id="editBody">
+    <form action="/" method="post">
+      <input type="text" name="name" id="" value="<%= todos.name %>" />
+      <input type="text" name="id" value="<%=todos._id %>" hidden />
+      <button type="submit">Uppdatera</button>
+    </form>
+  </body>
+</html>
