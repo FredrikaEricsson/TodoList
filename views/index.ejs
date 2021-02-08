@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Att göra</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> 
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Roboto&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700;800&family=Roboto&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <div id="headline">
-    <span>Att göra</span>
-  </div>
+      <span>Att göra</span>
+    </div>
+    <div id="container">
+   
  
 <div id="addData">
     <%- include("addData.ejs") %> 
@@ -34,7 +41,7 @@
          
       <% } %>
 
-
+<div id="pagination">
       <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
 
         <a href="/?page=<%=(dataToShow/dataToShowPerReq) +1%>"> 
@@ -48,6 +55,8 @@
 
       <% } %>
 
-      
+    </div>
+
+    </div>
   </body>
 </html>

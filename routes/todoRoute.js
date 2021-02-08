@@ -10,7 +10,10 @@ router.get("/", async (req, res) => {
     const dataToShowPerReq = 5;
     const totalDataPart = Math.ceil(totalData / dataToShowPerReq);
     const dataToShow = dataToShowPerReq * page;
-    const data = await Todo.find().limit(dataToShow).sort({ date: sorted });
+    const data = await Todo.find()
+
+      .limit(dataToShow)
+      .sort({ date: sorted });
     res.render("index.ejs", {
       data,
       totalData,

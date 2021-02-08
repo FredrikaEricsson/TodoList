@@ -1,63 +1,89 @@
 html {
   display: flex;
-  justify-content: center;
-  align-items: center;
+
   body {
     display: flex;
     flex-direction: column;
 
-    width: 33%;
+    width: 100%;
+
+    align-items: center;
+    margin-top: 3%;
+
     #headline {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      width: 30%;
+      margin-bottom: 1%;
+
       span {
         justify-content: center;
         align-items: center;
-        font-family: sans-serif;
+        font-family: "Exo", sans-serif;
+        font-weight: 800;
         font-size: 40px;
+
+        color: darkgray;
+        text-decoration: underline solid #fec5bb 6px;
         padding: 2%;
       }
     }
-    #addData {
-      display: flex;
-      justify-content: center;
-    }
 
-    #sorting {
+    #container {
       display: flex;
-      justify-content: center;
-      font-family: sans-serif;
+      flex-direction: column;
+      background-color: #fae1dd;
+      width: 35%;
 
-      a {
+      align-items: center;
+      padding: 2%;
+
+      #addData {
         display: flex;
-        padding: 1% 2%;
-      }
-    }
-    #todoList {
-      display: flex;
-      flex-direction: row;
-      background-color: lightblue;
-      font-family: sans-serif;
-
-      #todoName {
-        width: 65%;
-        padding: 1% 2%;
-      }
-      #todoDate {
-        width: 38%;
-        padding: 1% 2%;
+        justify-content: center;
       }
 
-      #changeTodo {
-        width: 3%;
-        padding: 1% 2%;
+      #sorting {
+        display: flex;
+        justify-content: center;
+        font-family: "Roboto", sans-serif;
+
+        a {
+          display: flex;
+          padding: 1% 2%;
+        }
       }
+      #todoList {
+        display: flex;
+        flex-direction: row;
+        background-color: #fcd5ce;
+        font-family: "Roboto", sans-serif;
+        width: 90%;
 
-      #deleteTodo {
-        width: 3%;
+        #todoName {
+          width: 65%;
+          padding: 1% 2%;
+        }
+        #todoDate {
+          width: 38%;
+          padding: 1% 2%;
+        }
 
-        padding: 1% 2%;
+        #changeTodo {
+          width: 3%;
+          padding: 1% 2%;
+        }
+
+        #deleteTodo {
+          width: 3%;
+
+          padding: 1% 2%;
+        }
+      }
+      #pagination {
+        font-family: "Roboto", sans-serif;
       }
     }
   }
