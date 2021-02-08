@@ -72,28 +72,28 @@ html {
             font-size: 15px;
             margin-left: 20%;
             color: #5e5e5e; }
-      html #indexBody #toDoList #todoList {
+      html #indexBody #toDoList .todoRow {
         display: flex;
         flex-direction: row;
         background-color: #d3f8e2;
         color: #5e5e5e;
         font-family: "Roboto", sans-serif;
         width: 97%; }
-        html #indexBody #toDoList #todoList #todoName {
+        html #indexBody #toDoList .todoRow .todoName {
           width: 65%;
           padding: 1% 2%; }
-        html #indexBody #toDoList #todoList #todoDate {
+        html #indexBody #toDoList .todoRow .todoDate {
           width: 38%;
           padding: 1% 0%; }
-        html #indexBody #toDoList #todoList #changeTodo {
+        html #indexBody #toDoList .todoRow .changeTodo {
           width: 3%;
           padding: 1% 2%; }
-          html #indexBody #toDoList #todoList #changeTodo a {
+          html #indexBody #toDoList .todoRow .changeTodo a {
             color: #5e5e5e; }
-        html #indexBody #toDoList #todoList #deleteTodo {
+        html #indexBody #toDoList .todoRow .deleteTodo {
           width: 3%;
           padding: 1% 2%; }
-          html #indexBody #toDoList #todoList #deleteTodo a {
+          html #indexBody #toDoList .todoRow .deleteTodo a {
             color: #5e5e5e; }
       html #indexBody #toDoList #pagination {
         font-family: "Roboto", sans-serif;

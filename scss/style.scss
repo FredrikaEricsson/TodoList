@@ -95,7 +95,7 @@ html {
         }
       }
 
-      #todoList {
+      .todoRow {
         display: flex;
         flex-direction: row;
         background-color: #d3f8e2;
@@ -103,17 +103,17 @@ html {
         font-family: "Roboto", sans-serif;
         width: 97%;
 
-        #todoName {
+        .todoName {
           width: 65%;
           padding: 1% 2%;
         }
 
-        #todoDate {
+        .todoDate {
           width: 38%;
           padding: 1% 0%;
         }
 
-        #changeTodo {
+        .changeTodo {
           width: 3%;
           padding: 1% 2%;
 
@@ -122,7 +122,7 @@ html {
           }
         }
 
-        #deleteTodo {
+        .deleteTodo {
           width: 3%;
           padding: 1% 2%;
           a {

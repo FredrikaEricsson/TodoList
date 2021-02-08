@@ -38,20 +38,20 @@
   </div>
     <% for(let i=0; i<todos.length; i++) { %>
 
-    <div id="todoList">
-      <div id="todoName">  <%= todos[i].name %> </div>
-      <div id="todoDate"> <%= todos[i].date.toDateString() %></div>
+    <div class="todoRow">
+      <div class="todoName">  <%= todos[i].name %> </div>
+      <div class="todoDate"> <%= todos[i].date.toDateString() %></div>
 
-       <div id="changeTodo"> <a href="/edit/<%= todos[i]._id %>" > <i class="fas fa-edit"></i>
+       <div class="changeTodo"> <a href="/edit/<%= todos[i]._id %>" > <i class="fas fa-edit"></i>
        </a> </div>
-       <div id="deleteTodo"> <a href="/delete/<%= todos[i]._id %>"  > <i class="fas fa-trash-alt"></i></a> </div>
+       <div class="deleteTodo"> <a href="/delete/<%= todos[i]._id %>"  > <i class="fas fa-trash-alt"></i></a> </div>
 
       </div>
        
          
       <% } %>
 
-<div id="pagination">
+    <div id="pagination">
       <% if(numberOfPages !== displayedTodos/todosPerPage) { %>
 
         <a href="/?page=<%=(displayedTodos/todosPerPage) +1%>"> 
