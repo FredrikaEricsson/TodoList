@@ -28,6 +28,7 @@ const databaseConnectedCallback = (err) => {
 mongoose.connect(
   process.env.DATABASE_URL,
   {
+    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
