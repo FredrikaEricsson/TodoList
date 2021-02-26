@@ -4,6 +4,7 @@ const User = require("../model/user");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const verifyToken = require("./middleware/userVerification");
 require("dotenv").config();
 
 let errors = [];
@@ -45,11 +46,27 @@ router.get("/login", (req, res) => {
 
 router.post("/login", async (req, res) => {
   const name = req.body.name;
-  const password = req.body.password;
   const userCredentials = await User.findOne({ name: req.body.name });
+  const checkedPassword = await bcrypt.compare(
+    req.body.password,
+    userCredentials.password
+  );
 
-  if (userCredentials.name === name && userCredentials.password === password) {
-    res.redirect("/");
+  if (checkedPassword) {
+    const jwtToken = await jwt.sign(
+      { user: userCredentials },
+      process.env.SECRET_KEY
+    );
+
+    if (jwtToken) {
+      const cookie = req.cookies.jwtToken;
+
+      if (!cookie) {
+        res.cookie("jwtToken", jwtToken, { maxAge: 3600000, httpOnly: true });
+      }
+
+      return res.redirect("/");
+    }
   }
   res.send("Try again");
 });

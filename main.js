@@ -3,8 +3,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const router = require("./routes/todoRoute");
 const userRouter = require("./routes/userRoute");
+let cookieParser = require("cookie-parser");
 
 const app = express();
+app.use(cookieParser());
 require("dotenv").config();
 
 app.use(express.static(__dirname + "/public/style"));
