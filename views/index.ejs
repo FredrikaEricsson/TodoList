@@ -4,11 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Att göra</title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/> 
-   <link rel="preconnect" href="https://fonts.gstatic.com">
-   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Roboto&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
-<link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700;800&family=Roboto&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700;800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="/style.css" />
   </head>
@@ -16,58 +25,30 @@
     <div id="headline">
       <span>Att göra</span>
     </div>
-    <div id="addData">
-    <%- include("addData.ejs") %> 
-  </div>
+    <div id="addData"><%- include("addData.ejs") %></div>
     <div id="toDoList">
-   
- 
-
-
-  <div id="todoHeadlines">
-    <span id="name">Namn</span>
-    <span id="date">Datum (Skapad)
-      <div id="sorting">
-      <a href="/?page=<%=(displayedTodos/todosPerPage)%>&&sorted=-1"><i class="fas fa-arrow-up"></i>
-        
-      </a>
-      <a href="/?page=<%=(displayedTodos/todosPerPage)%>&&sorted=1"><i class="fas fa-arrow-down"></i>
-      </a>
-    </div>
-    </span>
-  </div>
-    <% for(let i=0; i<todos.length; i++) { %>
-
-    <div class="todoRow">
-      <div class="todoName">  <%= todos[i].name %> </div>
-      <div class="todoDate"> <%= todos[i].date.toDateString() %></div>
-
-       <div class="changeTodo"> <a href="/edit/<%= todos[i]._id %>" > <i class="fas fa-edit"></i>
-       </a> </div>
-       <div class="deleteTodo"> <a href="/delete/<%= todos[i]._id %>"  > <i class="fas fa-trash-alt"></i></a> </div>
-
+      <div id="todoHeadlines">
+        <span id="name">Namn</span>
+        <span id="date">Datum (Skapad) </span>
       </div>
-       
-         
-      <% } %>
 
-    <div id="pagination">
-      <% if(numberOfPages !== displayedTodos/todosPerPage) { %>
+      <% toDos.forEach( todo => { %>
 
-        <a href="/?page=<%=(displayedTodos/todosPerPage) +1%>"> 
-            Visa flera
-          </a>
-      <% } else {   %>
+      <div class="todoRow">
+        <div class="todoName"><%= todo.name %></div>
+        <div class="todoDate"><%= todo.date.toDateString() %></div>
 
-        <a href="/?page=1"> 
-            Visa färre
-          </a>
-
-
-      <% } %>
-
+        <div class="changeTodo">
+          <a href="/edit/<%= todo._id %>"> <i class="fas fa-edit"></i> </a>
+        </div>
+        <div class="deleteTodo">
+          <a href="/delete/<%= todo._id %>">
+            <i class="fas fa-trash-alt"></i
+          ></a>
+        </div>
+      </div>
+      <% }) %>
     </div>
-
-    </div>
+    <a href="/logout">Logga ut</a>
   </body>
 </html>

@@ -41,7 +41,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.render("login.ejs");
+  res.clearCookie("jwtToken").render("login.ejs");
 });
 
 router.post("/login", async (req, res) => {
@@ -70,4 +70,9 @@ router.post("/login", async (req, res) => {
   }
   res.send("Try again");
 });
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwtToken").redirect("/login");
+});
+
 module.exports = router;
