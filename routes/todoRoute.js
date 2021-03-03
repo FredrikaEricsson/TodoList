@@ -1,43 +1,13 @@
 const express = require("express");
 const Todo = require("../model/todo");
+const User = require("../model/user");
 const router = express.Router();
+const { renderTodos, addTodo } = require("../controller/handleTodo");
+const verifyUser = require("./middleware/userVerification");
 
-router.get("/", async (req, res) => {
-  const sorted = +req.query.sorted || 1;
-  const page = +req.query.page || 1;
-  try {
-    const allTodos = await Todo.find().countDocuments();
-    const todosPerPage = 5;
-    const numberOfPages = Math.ceil(allTodos / todosPerPage);
-    const displayedTodos = todosPerPage * page;
-    const todos = await Todo.find()
+router.get("/", verifyUser, renderTodos);
 
-      .limit(displayedTodos)
-      .sort({ date: sorted });
-    res.render("index.ejs", {
-      todos,
-      allTodos,
-      numberOfPages,
-      displayedTodos,
-      todosPerPage,
-      errors: "empty",
-    });
-  } catch (err) {
-    res.render("error.ejs", { error: err });
-  }
-});
-
-router.post("/", async (req, res) => {
-  try {
-    await new Todo({
-      name: req.body.name,
-      date: req.body.date,
-    }).save();
-    res.redirect("/");
-  } catch (err) {
-    res.render("error.ejs", { error: err });
-  }
-});
+router.post("/", verifyUser, addTodo);
 
 router.get("/edit/:id", async (req, res) => {
   const todos = await Todo.findOne({ _id: req.params.id });

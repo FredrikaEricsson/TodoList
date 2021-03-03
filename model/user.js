@@ -5,8 +5,20 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true, unique: true },
   token: String,
   tokenExpiration: Date,
+  toDos: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "todo",
+    },
+  ],
 });
 
-const user = mongoose.model("user", userSchema);
+userSchema.methods.addTodo = function (todoID) {
+  this.toDos.push(todoID);
 
-module.exports = user;
+  this.save();
+};
+
+const User = mongoose.model("user", userSchema);
+
+module.exports = User;
