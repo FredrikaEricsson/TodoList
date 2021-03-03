@@ -21,6 +21,13 @@ router.post("/edit", async (req, res) => {
 
 router.get("/delete/:id", async (req, res) => {
   await Todo.deleteOne({ _id: req.params.id });
+  await User.updateMany(
+    {},
+    {
+      $pull: { toDos: { $in: [req.params.id] } },
+    },
+    { multi: true }
+  );
   res.redirect("/");
 });
 
