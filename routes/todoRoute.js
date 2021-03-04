@@ -9,6 +9,12 @@ router.get("/", verifyUser, renderTodos);
 
 router.post("/", verifyUser, addTodo);
 
+router.get("/next/:page", verifyUser, (req, res) => {
+  console.log(req.params.page);
+  const nextPage = parseInt(req.params.page) + 1;
+  res.redirect("/?page=" + nextPage);
+});
+
 router.get("/edit/:id", async (req, res) => {
   const todos = await Todo.findOne({ _id: req.params.id });
   res.render("edit.ejs", { todos: todos });

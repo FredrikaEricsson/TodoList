@@ -3,9 +3,17 @@ const { startSession } = require("../model/user");
 const User = require("../model/user");
 
 const renderTodos = async (req, res) => {
-  const user = await User.findOne({ _id: req.user.user._id }).populate("toDos");
-  console.log(user.toDos);
-  res.render("index.ejs", { toDos: user.toDos, err: "" });
+  const sorted = +req.query.sorted || 1;
+  const page = parseInt(req.query.page) || 1;
+  const limit = 5;
+  const skip = (page - 1) * limit;
+
+  const user = await User.findOne({ _id: req.user.user._id }).populate({
+    path: "toDos",
+    options: { sort: { date: -1 }, skip: skip, limit: limit },
+  });
+
+  res.render("index.ejs", { toDos: user.toDos, err: "", page: page });
 };
 
 const addTodo = async (req, res) => {
