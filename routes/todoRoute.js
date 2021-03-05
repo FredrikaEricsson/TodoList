@@ -10,9 +10,13 @@ router.get("/", verifyUser, renderTodos);
 router.post("/", verifyUser, addTodo);
 
 router.get("/next/:page", verifyUser, (req, res) => {
-  console.log(req.params.page);
   const nextPage = parseInt(req.params.page) + 1;
   res.redirect("/?page=" + nextPage);
+});
+
+router.get("/previous/:page", verifyUser, (req, res) => {
+  const previousPage = parseInt(req.params.page) - 1;
+  res.redirect("/?page=" + previousPage);
 });
 
 router.get("/edit/:id", async (req, res) => {

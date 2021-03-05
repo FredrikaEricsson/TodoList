@@ -50,12 +50,14 @@
       <% }) %>
     </div>
     <% if (toDos.length > 4) { %>
-    <a href="/next/<%= page %>"> Nästa sida </a>
+    <a href="/next/<%= page %>"> Nästa </a>
 
     <% } else { %>
-    <a hidden href="/next/<%= page %>"> Nästa sida </a>
+    <a hidden href="/next/<%= page %>"> Nästa</a>
 
     <% } %>
+    <a href="/previous/<%= page %>"> Förra</a>
+
     <a href="/logout">Logga ut</a>
   </body>
 </html>
