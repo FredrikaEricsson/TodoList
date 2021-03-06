@@ -1,9 +1,37 @@
-<form action="/register" method="post">
-  <%= errors[0] %>
-  <input type="text" name="name" id="" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Att göra</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
-  <%= errors[1] %>
-  <input type="text" name="password" id="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700;800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
-  <button type="submit">Register</button>
-</form>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="registerBody">
+    <form action="/register" method="post">
+      <%= errors[0] %>
+      <label for="name">Användarnamn</label>
+      <input class="input" type="text" name="name" id="" />
+
+      <%= errors[1] %>
+      <label for="password">Lösenord</label>
+      <input class="input" type="text" name="password" id="" />
+
+      <button type="submit">Registrera</button>
+    </form>
+  </body>
+</html>

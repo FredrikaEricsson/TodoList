@@ -1,6 +1,35 @@
-<form action="/login" method="post">
-  <input type="text" name="name" id="" />
-  <input type="text" name="password" id="" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Att göra</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 
-  <button type="submit">Login</button>
-</form>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700;800&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="loginBody">
+    <form action="/login" method="post">
+      <label for="name">Användarnamn</label>
+      <input class="input" type="text" name="name" id="" />
+      <label for="password">Lösenord</label>
+      <input class="input" type="text" name="password" id="" />
+
+      <button type="submit">Login</button>
+      <span>Ny användare? <a href="/register">Registera</a></span>
+    </form>
+  </body>
+</html>

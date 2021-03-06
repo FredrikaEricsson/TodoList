@@ -19,6 +19,18 @@ router.get("/previous/:page", verifyUser, (req, res) => {
   res.redirect("/?page=" + previousPage);
 });
 
+router.get("/sort/:sorted", verifyUser, (req, res) => {
+  let sorted = parseInt(req.params.sorted);
+
+  console.log(sorted);
+  if (sorted === -1) {
+    sorted = 1;
+  } else {
+    sorted = -1;
+  }
+  res.redirect("/?sorted=" + sorted);
+});
+
 router.get("/edit/:id", async (req, res) => {
   const todos = await Todo.findOne({ _id: req.params.id });
   res.render("edit.ejs", { todos: todos });
