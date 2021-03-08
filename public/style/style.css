@@ -1,18 +1,32 @@
 html {
   display: flex; }
-  html body {
+  html #indexBody {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
     margin-top: 3%; }
-    html body #headline {
+    html #indexBody .welcome {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+      margin-bottom: 1%; }
+      html #indexBody .welcome span {
+        justify-content: center;
+        align-items: center;
+        font-family: "Exo", sans-serif;
+        font-weight: 800;
+        font-size: 35px;
+        color: darkgray;
+        text-decoration: underline solid #f694c1 6px; }
+    html #indexBody .headline {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 30%;
       margin-bottom: 1%; }
-      html body #headline span {
+      html #indexBody .headline span {
         justify-content: center;
         align-items: center;
         font-family: "Exo", sans-serif;
@@ -21,36 +35,36 @@ html {
         color: darkgray;
         text-decoration: underline solid #f694c1 6px;
         padding: 2%; }
-    html body #addData {
+    html #indexBody #addData {
       display: flex;
       justify-content: center;
       padding-bottom: 1%;
       width: 50%; }
-      html body #addData form {
+      html #indexBody #addData form {
         display: flex;
         justify-content: center;
         width: 70%;
         height: 2em; }
-        html body #addData form .input {
+        html #indexBody #addData form .input {
           width: 40%;
           margin-right: 1%;
           height: 70%;
           font-family: "Roboto", sans-serif;
           color: #5e5e5e;
           border: 1px solid #5e5e5e; }
-        html body #addData form button {
+        html #indexBody #addData form button {
           height: 83%;
           font-family: "Exo", sans-serif;
           color: #5e5e5e;
           background-color: #ede7b1;
           border: 1px solid #5e5e5e; }
-    html body #toDoList {
+    html #indexBody #toDoList {
       display: flex;
       flex-direction: column;
       width: 35%;
       align-items: center;
-      padding: 2%; }
-      html body #toDoList #todoHeadlines {
+      padding: 1%; }
+      html #indexBody #toDoList #todoHeadlines {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -58,48 +72,53 @@ html {
         font-family: "Roboto", sans-serif;
         background-color: #f694c1;
         color: #5e5e5e; }
-        html body #toDoList #todoHeadlines #name {
+        html #indexBody #toDoList #todoHeadlines #name {
           font-size: 17px;
           padding: 1% 2%; }
-        html body #toDoList #todoHeadlines #date {
+        html #indexBody #toDoList #todoHeadlines #date {
           display: flex;
           align-items: center;
           margin-left: 42%;
           padding: 1% 0%;
           font-size: 17px; }
-          html body #toDoList #todoHeadlines #date a {
+          html #indexBody #toDoList #todoHeadlines #date a {
             text-decoration: none;
             font-size: 15px;
             margin-left: 20%;
             color: #5e5e5e; }
-      html body #toDoList .todoRow {
+      html #indexBody #toDoList .todoRow {
         display: flex;
         flex-direction: row;
         background-color: #d3f8e2;
         color: #5e5e5e;
         font-family: "Roboto", sans-serif;
         width: 97%; }
-        html body #toDoList .todoRow .todoName {
+        html #indexBody #toDoList .todoRow .todoName {
           width: 65%;
           padding: 1% 2%; }
-        html body #toDoList .todoRow .todoDate {
+        html #indexBody #toDoList .todoRow .todoDate {
           width: 38%;
           padding: 1% 0%; }
-        html body #toDoList .todoRow .changeTodo {
+        html #indexBody #toDoList .todoRow .changeTodo {
           width: 3%;
           padding: 1% 2%; }
-          html body #toDoList .todoRow .changeTodo a {
+          html #indexBody #toDoList .todoRow .changeTodo a {
             color: #5e5e5e; }
-        html body #toDoList .todoRow .deleteTodo {
+        html #indexBody #toDoList .todoRow .deleteTodo {
           width: 3%;
           padding: 1% 2%; }
-          html body #toDoList .todoRow .deleteTodo a {
+          html #indexBody #toDoList .todoRow .deleteTodo a {
             color: #5e5e5e; }
-      html body #toDoList #pagination {
-        font-family: "Roboto", sans-serif;
-        margin-top: 20px; }
-        html body #toDoList #pagination a {
-          color: #5e5e5e; }
+    html #indexBody .pagination {
+      display: flex;
+      color: #5e5e5e;
+      flex-direction: row; }
+      html #indexBody .pagination i {
+        color: #5e5e5e; }
+    html #indexBody #logout {
+      font-family: "Roboto", sans-serif;
+      margin-top: 20px;
+      color: #5e5e5e; }
   html .editBody {
     display: flex;
     height: 100vh;
@@ -189,3 +208,83 @@ html {
       html .registerBody form span {
         font-family: "Exo", sans-serif;
         color: #5e5e5e; }
+  html #resetBody {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    html #resetBody form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3%;
+      background-color: #d3f8e2; }
+      html #resetBody form input {
+        width: 100%;
+        font-family: "Roboto", sans-serif;
+        color: #5e5e5e;
+        border: 1px solid #5e5e5e;
+        margin: 1%; }
+      html #resetBody form label {
+        font-family: "Exo", sans-serif;
+        color: #5e5e5e; }
+      html #resetBody form button {
+        font-family: "Exo", sans-serif;
+        color: #5e5e5e;
+        background-color: #ede7b1;
+        border: 1px solid #5e5e5e;
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%; }
+  html #checkMailBody {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    html #checkMailBody div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3%;
+      background-color: #d3f8e2; }
+      html #checkMailBody div span {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        color: #5e5e5e;
+        margin: 1%; }
+  html #resetFormBody {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    html #resetFormBody form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3%;
+      background-color: #d3f8e2; }
+      html #resetFormBody form input {
+        width: 100%;
+        font-family: "Roboto", sans-serif;
+        color: #5e5e5e;
+        border: 1px solid #5e5e5e;
+        margin: 1%; }
+      html #resetFormBody form button {
+        font-family: "Exo", sans-serif;
+        color: #5e5e5e;
+        background-color: #ede7b1;
+        border: 1px solid #5e5e5e;
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%; }

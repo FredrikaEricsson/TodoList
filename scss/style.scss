@@ -3,14 +3,29 @@ html {
 
   //Index page
 
-  body {
+  #indexBody {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
     margin-top: 3%;
-
-    #headline {
+    .welcome {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+      margin-bottom: 1%;
+      span {
+        justify-content: center;
+        align-items: center;
+        font-family: "Exo", sans-serif;
+        font-weight: 800;
+        font-size: 35px;
+        color: darkgray;
+        text-decoration: underline solid #f694c1 6px;
+      }
+    }
+    .headline {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -65,7 +80,7 @@ html {
       flex-direction: column;
       width: 35%;
       align-items: center;
-      padding: 2%;
+      padding: 1%;
 
       #todoHeadlines {
         display: flex;
@@ -132,14 +147,20 @@ html {
           }
         }
       }
-      #pagination {
-        font-family: "Roboto", sans-serif;
-        margin-top: 20px;
+    }
+    .pagination {
+      display: flex;
+      color: rgb(94, 94, 94);
+      flex-direction: row;
 
-        a {
-          color: rgb(94, 94, 94);
-        }
+      i {
+        color: rgb(94, 94, 94);
       }
+    }
+    #logout {
+      font-family: "Roboto", sans-serif;
+      margin-top: 20px;
+      color: rgb(94, 94, 94);
     }
   }
 
@@ -263,6 +284,108 @@ html {
       span {
         font-family: "Exo", sans-serif;
         color: rgb(94, 94, 94);
+      }
+    }
+  }
+  #resetBody {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3%;
+      background-color: #d3f8e2;
+
+      input {
+        width: 100%;
+
+        font-family: "Roboto", sans-serif;
+        color: rgb(94, 94, 94);
+        border: 1px solid rgb(94, 94, 94);
+        margin: 1%;
+      }
+
+      label {
+        font-family: "Exo", sans-serif;
+        color: rgb(94, 94, 94);
+      }
+
+      button {
+        font-family: "Exo", sans-serif;
+        color: rgb(94, 94, 94);
+        background-color: #ede7b1;
+        border: 1px solid rgb(94, 94, 94);
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+    }
+  }
+  #checkMailBody {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3%;
+      background-color: #d3f8e2;
+
+      span {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        color: rgb(94, 94, 94);
+        margin: 1%;
+      }
+    }
+  }
+  #resetFormBody {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3%;
+      background-color: #d3f8e2;
+
+      input {
+        width: 100%;
+
+        font-family: "Roboto", sans-serif;
+        color: rgb(94, 94, 94);
+        border: 1px solid rgb(94, 94, 94);
+        margin: 1%;
+      }
+
+      button {
+        font-family: "Exo", sans-serif;
+        color: rgb(94, 94, 94);
+        background-color: #ede7b1;
+        border: 1px solid rgb(94, 94, 94);
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
       }
     }
   }

@@ -14,10 +14,14 @@ const renderTodos = async (req, res) => {
     path: "toDos",
     options: { sort: { date: sorted }, skip: skip, limit: limit },
   });
+  const allTodos = await User.findOne({ _id: req.user.user._id }).populate({
+    path: "toDos",
+  });
 
   res.render("index.ejs", {
     user: user,
     toDos: user.toDos,
+    allTodos: allTodos.toDos,
     err: "",
     page: page,
     sorted: sorted,

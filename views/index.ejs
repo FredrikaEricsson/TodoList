@@ -22,8 +22,10 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body id="indexBody">
-    <span>Välkommen <%= user.name %></span>
-    <div id="headline">
+    <div class="welcome">
+      <span>Välkommen <%= user.name %></span>
+    </div>
+    <div class="headline">
       <span>Att göra</span>
     </div>
     <div id="addData"><%- include("addData.ejs") %></div>
@@ -54,14 +56,17 @@
       <% }) %>
     </div>
     <% if (toDos.length > 4) { %>
-    <a href="/next/<%= page %><%=sorted%>"> Nästa </a>
+    <a class="pagination" href="/next/<%= page %><%=sorted%>">
+      <i class="fas fa-chevron-right"></i>
+    </a>
 
     <% } else { %>
-    <a hidden href="/next/<%= page %><%=sorted%>"> Nästa</a>
-
+    <a hidden class="pagination" href="/next/<%= page %><%=sorted%>"> </a>
+    <% } if (page > 1) { %>
+    <a class="pagination" href="/previous/<%= page %><%=sorted%>">
+      <i class="fas fa-chevron-left"></i
+    ></a>
     <% } %>
-    <a href="/previous/<%= page %><%=sorted%>"> Förra</a>
-
-    <a href="/logout">Logga ut</a>
+    <a id="logout" href="/logout">Logga ut</a>
   </body>
 </html>
