@@ -23,13 +23,14 @@
   </head>
   <body class="registerBody">
     <form action="/register" method="post">
-      <%= errors[0] %>
       <label for="name">Användarnamn</label>
       <input class="input" type="text" name="name" id="" />
 
-      <%= errors[1] %>
+      <label for="email">E-post</label>
+      <input class="input" type="email" name="email" id="" />
+
       <label for="password">Lösenord</label>
-      <input class="input" type="text" name="password" id="" />
+      <input class="input" type="password" name="password" id="" />
 
       <button type="submit">Registrera</button>
     </form>

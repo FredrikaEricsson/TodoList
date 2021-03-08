@@ -23,13 +23,14 @@
   </head>
   <body class="loginBody">
     <form action="/login" method="post">
-      <label for="name">Användarnamn</label>
-      <input class="input" type="text" name="name" id="" />
+      <label for="email">E-post</label>
+      <input class="input" type="email" name="email" id="" />
       <label for="password">Lösenord</label>
-      <input class="input" type="text" name="password" id="" />
+      <input class="input" type="password" name="password" id="" />
 
       <button type="submit">Login</button>
       <span>Ny användare? <a href="/register">Registera</a></span>
+      <span>Glömt lösenord? <a href="/reset">Återställ</a></span>
     </form>
   </body>
 </html>

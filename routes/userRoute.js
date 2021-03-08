@@ -4,6 +4,12 @@ const User = require("../model/user");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const {
+  renderReset,
+  resetSubmit,
+  resetParams,
+  resetFormSubmit,
+} = require("../controller/resetPassword");
 const verifyToken = require("./middleware/userVerification");
 require("dotenv").config();
 
@@ -15,11 +21,15 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
   if (!req.body.name) {
-    errors.push("Name is required");
+    errors.push("Användarnamn krävs");
+  }
+
+  if (!req.body.email) {
+    errors.push("E-post krävs");
   }
 
   if (!req.body.password) {
-    errors.push("Password is required");
+    errors.push("Lösenord krävs");
   }
 
   if (!req.body.name || !req.body.password) {
@@ -32,9 +42,9 @@ router.post("/register", async (req, res) => {
 
   const user = new User({
     name: req.body.name,
+    email: req.body.email,
     password: hashedPassword,
   });
-  console.log(user);
   await user.save();
 
   res.redirect("/");
@@ -45,8 +55,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const name = req.body.name;
-  const userCredentials = await User.findOne({ name: req.body.name });
+  const userCredentials = await User.findOne({ email: req.body.email });
   const checkedPassword = await bcrypt.compare(
     req.body.password,
     userCredentials.password
@@ -74,5 +83,13 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
   res.clearCookie("jwtToken").redirect("/login");
 });
+
+router.get("/reset", renderReset);
+
+router.post("/reset", resetSubmit);
+
+router.get("/reset/:token", resetParams);
+
+router.post("/resetPasswordForm", resetFormSubmit);
 
 module.exports = router;
