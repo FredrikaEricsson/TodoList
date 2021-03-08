@@ -16,6 +16,7 @@ const renderTodos = async (req, res) => {
   });
 
   res.render("index.ejs", {
+    user: user,
     toDos: user.toDos,
     err: "",
     page: page,

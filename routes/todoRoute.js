@@ -3,34 +3,22 @@ const Todo = require("../model/todo");
 const User = require("../model/user");
 const router = express.Router();
 const { renderTodos, addTodo } = require("../controller/handleTodo");
+const {
+  nextPage,
+  previousPage,
+  sortTodos,
+} = require("../controller/homeController");
 const verifyUser = require("./middleware/userVerification");
 
 router.get("/", verifyUser, renderTodos);
 
 router.post("/", verifyUser, addTodo);
 
-router.get("/next/:page:sorted", verifyUser, (req, res) => {
-  let sorted = parseInt(req.params.sorted);
-  const nextPage = parseInt(req.params.page) + 1;
-  res.redirect("/?page=" + nextPage + "&sorted=" + sorted);
-});
+router.get("/next/:page:sorted", verifyUser, nextPage);
 
-router.get("/previous/:page:sorted", verifyUser, (req, res) => {
-  let sorted = parseInt(req.params.sorted);
-  const previousPage = parseInt(req.params.page) - 1;
-  res.redirect("/?page=" + previousPage + "&sorted=" + sorted);
-});
+router.get("/previous/:page:sorted", verifyUser, previousPage);
 
-router.get("/sort/:page:sorted", verifyUser, (req, res) => {
-  let page = parseInt(req.params.page);
-  let sorted = parseInt(req.params.sorted);
-  if (sorted === -1) {
-    sorted = 1;
-  } else {
-    sorted = -1;
-  }
-  res.redirect("/?page=" + page + "&sorted=" + sorted);
-});
+router.get("/sort/:page:sorted", verifyUser, sortTodos);
 
 router.get("/edit/:id", async (req, res) => {
   const todos = await Todo.findOne({ _id: req.params.id });
