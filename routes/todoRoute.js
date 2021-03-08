@@ -9,26 +9,27 @@ router.get("/", verifyUser, renderTodos);
 
 router.post("/", verifyUser, addTodo);
 
-router.get("/next/:page", verifyUser, (req, res) => {
-  const nextPage = parseInt(req.params.page) + 1;
-  res.redirect("/?page=" + nextPage);
-});
-
-router.get("/previous/:page", verifyUser, (req, res) => {
-  const previousPage = parseInt(req.params.page) - 1;
-  res.redirect("/?page=" + previousPage);
-});
-
-router.get("/sort/:sorted", verifyUser, (req, res) => {
+router.get("/next/:page:sorted", verifyUser, (req, res) => {
   let sorted = parseInt(req.params.sorted);
+  const nextPage = parseInt(req.params.page) + 1;
+  res.redirect("/?page=" + nextPage + "&sorted=" + sorted);
+});
 
-  console.log(sorted);
+router.get("/previous/:page:sorted", verifyUser, (req, res) => {
+  let sorted = parseInt(req.params.sorted);
+  const previousPage = parseInt(req.params.page) - 1;
+  res.redirect("/?page=" + previousPage + "&sorted=" + sorted);
+});
+
+router.get("/sort/:page:sorted", verifyUser, (req, res) => {
+  let page = parseInt(req.params.page);
+  let sorted = parseInt(req.params.sorted);
   if (sorted === -1) {
     sorted = 1;
   } else {
     sorted = -1;
   }
-  res.redirect("/?sorted=" + sorted);
+  res.redirect("/?page=" + page + "&sorted=" + sorted);
 });
 
 router.get("/edit/:id", async (req, res) => {

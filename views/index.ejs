@@ -29,7 +29,10 @@
     <div id="toDoList">
       <div id="todoHeadlines">
         <span id="name">Namn</span>
-        <a id="date" href="/sort/<%=sorted%>"> <span>Datum (Skapad) </span></a>
+
+        <a id="date" href="/sort/<%= page %><%=sorted%>">
+          <span>Datum (Skapad)<i class="fas fa-sort"></i> </span
+        ></a>
       </div>
 
       <% toDos.forEach( todo => { %>
@@ -50,13 +53,13 @@
       <% }) %>
     </div>
     <% if (toDos.length > 4) { %>
-    <a href="/next/<%= page %>"> Nästa </a>
+    <a href="/next/<%= page %><%=sorted%>"> Nästa </a>
 
     <% } else { %>
-    <a hidden href="/next/<%= page %>"> Nästa</a>
+    <a hidden href="/next/<%= page %><%=sorted%>"> Nästa</a>
 
     <% } %>
-    <a href="/previous/<%= page %>"> Förra</a>
+    <a href="/previous/<%= page %><%=sorted%>"> Förra</a>
 
     <a href="/logout">Logga ut</a>
   </body>
